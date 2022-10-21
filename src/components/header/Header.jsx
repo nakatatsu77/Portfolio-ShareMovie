@@ -15,12 +15,14 @@ export const Header = () => {
   return (
     <>
       <Flex
+        position="absolute"
+        w="100%"
         as="nav"
-        bg="blackAlpha.800"
+        bg="orange.900"
         color="gray.50"
         align="center"
         justify="space-between"
-        padding={{ base: 3, md: 3, }}
+        padding={{ base: 3, md: 3 }}
       >
         <Flex
           align="center"
