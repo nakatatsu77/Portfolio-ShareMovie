@@ -1,26 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from '../Firebase';
-import { useNavigate, Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../Firebase";
+import { Navigate } from "react-router-dom";
+import { Image } from "@chakra-ui/react";
+import topPageImage from "../assets/img/top.png";
 
 export const SharePage = () => {
-
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    onAuthStateChanged(auth, currentUser => {
+    onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
     });
   }, []);
-
-  const navigate = useNavigate();
-
-  const logout = async () => {
-    await signOut(auth);
-    navigate('/login/');
-  };
 
   return (
     <>
@@ -29,11 +23,15 @@ export const SharePage = () => {
           {!user ? (
             <Navigate to={`/login/`} />
           ) : (
-            <div>
-              <p>Shareページです</p>
-              <p>{user?.email}</p>
-              <button onClick={logout}>ログアウト</button>
-            </div>
+            <>
+              <Image
+                src={topPageImage}
+                alt="picture"
+                objectFit="cover"
+                w="100%"
+                minH="100vh"
+              />
+            </>
           )}
         </>
       )}
