@@ -6,6 +6,7 @@ import { Page404 } from "../pages/Page404";
 import { Setting } from "../pages/Setting";
 import {SignUp} from "../pages/SignUp";
 import { SharePage } from "../pages/SharePage";
+import { ShareMovie } from '../components/movie/ShareMovie';
 
 export const Router = () => {
   return (
@@ -15,6 +16,7 @@ export const Router = () => {
     <Route path="/share" element={<SharePage />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
+    <Route path="/sharemovie" element={<ShareMovie />} />
 
     <Route path="/*" element={<Page404 />} />
   </Routes>

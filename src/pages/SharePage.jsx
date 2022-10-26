@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase";
 import { Navigate } from "react-router-dom";
-import { Box, Flex, Image } from "@chakra-ui/react";
+import { Box, Flex, FormControl, Heading, Image, Text } from "@chakra-ui/react";
 import topPageImage from "../assets/img/top.png";
+import { ShareMovie } from "../components/movie/ShareMovie";
 
 export const SharePage = () => {
   const [user, setUser] = useState("");
@@ -24,21 +25,10 @@ export const SharePage = () => {
             <Navigate to={`/login/`} />
           ) : (
             <>
-              {/* <Image
-                src={topPageImage}
-                alt="picture"
-                objectFit="cover"
-                w="100%"
-                minH="100vh"
-              /> */}
-              <Flex align="center" justify="center" height="100vh" >
-                <Box
-                  bg="white"
-                  w="lg"
-                  h="100px"
-                  borderRadius="lg"
-                  shadow="lg"
-                ></Box>
+              <Flex justify="center" height="100vh">
+                <Flex align="flex-start" pt={70}>
+                  <ShareMovie />
+                </Flex>
               </Flex>
             </>
           )}

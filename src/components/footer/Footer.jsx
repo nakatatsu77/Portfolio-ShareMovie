@@ -4,8 +4,8 @@ import React from "react";
 export const Footer = () => {
   return (
     <Box
-      position="absolute"
-      bottom="0"
+      // position="absolute"
+      // bottom="0"
       bg="orange.700"
       color="gray.50"
       w="100%"

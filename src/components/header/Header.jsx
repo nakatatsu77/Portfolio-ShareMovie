@@ -32,7 +32,7 @@ export const Header = () => {
   return (
     <>
       <Flex
-        position="absolute"
+        // position="absolute"
         w="100%"
         as="nav"
         bg="orange.900"
