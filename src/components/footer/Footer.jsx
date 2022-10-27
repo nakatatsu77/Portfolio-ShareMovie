@@ -4,14 +4,14 @@ import React from "react";
 export const Footer = () => {
   return (
     <Box
-      // position="absolute"
-      // bottom="0"
+      position="absolute"
+      bottom="0"
       bg="orange.700"
       color="gray.50"
       w="100%"
-      padding={{ base: 3, md: 4 }}
+      padding={{ base: 4, md: 5 }}
     >
-      <Text textAlign="center" fontSize="xs">
+      <Text textAlign="center" fontSize="sm">
         © 2022 Tatsu
       </Text>
     </Box>

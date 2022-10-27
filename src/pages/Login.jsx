@@ -40,9 +40,9 @@ export const Login = () => {
       {user ? (
         <Navigate to={`/share`} />
       ) : (
-        <Flex align="center" justify="center" height="100vh">
-          <Box bg="white" w="sm" p={4} borderRadius="md" shadow="md">
-            <Heading as="h1" size="md" textAlign="center">
+        <Flex align="center" justify="center" minH="100vh" >
+          <Box bg="white" w="lg" p={10} borderRadius="md" shadow="md" m={10}>
+            <Heading as="h1" size="lg" textAlign="center">
               ログインフォーム
             </Heading>
             <Divider my={4} />
@@ -52,6 +52,7 @@ export const Login = () => {
                   placeholder="Email"
                   name="email"
                   type="email"
+                  size="lg"
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
                 />
@@ -61,6 +62,7 @@ export const Login = () => {
                     placeholder="Password"
                     name="password"
                     type="password"
+                    size="lg"
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
                   />
@@ -72,13 +74,14 @@ export const Login = () => {
                   textAlign="center"
                   textDecoration="underline"
                   color="blue"
+                  fontSize="xl"
                 >
                   <Link to={`/signup/`}>新規登録はこちら</Link>
                 </Text>
                 <Button
                   type="submit"
                   colorScheme="twitter"
-                  size="md"
+                  size="lg"
                   paddingX="80px"
                 >
                   ログイン

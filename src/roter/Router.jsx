@@ -16,7 +16,7 @@ export const Router = () => {
     <Route path="/share" element={<SharePage />} />
     <Route path="/login" element={<Login />} />
     <Route path="/signup" element={<SignUp />} />
-    <Route path="/sharemovie" element={<ShareMovie />} />
+    {/* <Route path="/sharemovie" element={<ShareMovie />} /> */}
 
     <Route path="/*" element={<Page404 />} />
   </Routes>

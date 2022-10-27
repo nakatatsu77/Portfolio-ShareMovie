@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../Firebase";
 import { Navigate } from "react-router-dom";
-import { Box, Flex, FormControl, Heading, Image, Text } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import topPageImage from "../assets/img/top.png";
 import { ShareMovie } from "../components/movie/ShareMovie";
 

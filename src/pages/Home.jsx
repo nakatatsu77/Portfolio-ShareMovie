@@ -22,7 +22,7 @@ export const Home = () => {
         left="50%"
         transform="translate(-50%,-50%)"
         fontWeight="bold"
-        fontSize={{ base: "30px", sm: "5xl" }}
+        fontSize={{ base: "50", md: "6xl" }}
         textShadow="1px 1px white"
         whiteSpace="nowrap"
       >
@@ -30,15 +30,14 @@ export const Home = () => {
       </Text>
 
       <Text
-        mt={{ base: "50px", sm: "80px" }}
+        mt={{ base: "90px", md: "90px" }}
         pos="absolute"
         top="40%"
         left="50%"
         transform="translate(-50%,-50%)"
         fontWeight="bold"
-        fontSize={{ base: "14px", sm: "2xl" }}
+        fontSize={{ base: "20px", md: "3xl" }}
         whiteSpace="nowrap"
-        borderRadius="10px"
       >
         印象に残った映画をみんなでシェアしよう！
       </Text>
@@ -49,8 +48,8 @@ export const Home = () => {
           top="60%"
           left="50%"
           transform="translate(-50%,-50%)"
-          mt={{ base: "10px", sm: "60px" }}
-          size={{ base: "sm", sm: "md" }}
+          mt={{ base: "30px", md: "60px" }}
+          size={{ base: "md", md: "lg" }}
           onClick={onClickSharePage}
         >
           映画をシェアする

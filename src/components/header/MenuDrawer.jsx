@@ -35,6 +35,7 @@ export const MenuDrawer = (props) => {
                 }}
                 w="100%"
                 bg="blackAlpha.100"
+                size="lg"
               >
                 ログアウト
               </Button>
@@ -47,6 +48,7 @@ export const MenuDrawer = (props) => {
                   }}
                   w="100%"
                   bg="blackAlpha.100"
+                  size="lg"
                 >
                   HOME
                 </Button>
@@ -57,6 +59,7 @@ export const MenuDrawer = (props) => {
                   }}
                   w="100%"
                   bg="blackAlpha.100"
+                  size="lg"
                 >
                   ログイン
                 </Button>
@@ -67,6 +70,7 @@ export const MenuDrawer = (props) => {
                   }}
                   w="100%"
                   bg="blackAlpha.100"
+                  size="lg"
                 >
                   新規登録
                 </Button>

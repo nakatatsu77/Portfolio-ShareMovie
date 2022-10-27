@@ -10,6 +10,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -55,10 +56,10 @@ export const ShareMovie = () => {
 
   return (
     <>
-      <Box h="100vh"></Box>
+      <Box>
       <Flex align="center" justify="center">
-        <Box>
-          <FormLabel fontWeight="bold" fontSize={{ base: "sm", sm: "md" }}>
+        <Box mt={6}>
+          <FormLabel fontWeight="bold" fontSize={{ base: "lg", md: "xl" }}>
             お気に入りの映画を紹介しよう！
             <form onSubmit={searchMovie}>
               <Flex>
@@ -71,13 +72,13 @@ export const ShareMovie = () => {
                   htmlSize={50}
                   w="100%"
                   mr={3}
-                  size={{ base: "sm", sm: "md" }}
+                  size={{ base: "lg", md: "lg" }}
                 />
                 <Button
                   onClick={onOpen}
                   type="search"
                   colorScheme="twitter"
-                  size={{ base: "sm", sm: "md" }}
+                  size={{ base: "md", md: "lg" }}
                 >
                   検索
                 </Button>
@@ -87,7 +88,7 @@ export const ShareMovie = () => {
                 isOpen={isOpen}
                 onClose={onClose}
                 scrollBehavior="inside"
-                size={{ base: "xs", sm: "md" }}
+                size={{ base: "sm", md: "xl" }}
               >
                 <ModalOverlay />
                 <ModalContent>
@@ -104,7 +105,7 @@ export const ShareMovie = () => {
                     )}
                   </ModalBody>
                   <ModalFooter>
-                    <Button variant="ghost" size="xs" onClick={onClose}>
+                    <Button variant="ghost" size="sm" onClick={onClose}>
                       キャンセル
                     </Button>
                   </ModalFooter>
@@ -112,6 +113,7 @@ export const ShareMovie = () => {
               </Modal>
             </form>
           </FormLabel>
+          
           {/* <div>
             {movies.length > 0 ? (
               <div>
@@ -125,6 +127,7 @@ export const ShareMovie = () => {
           </div> */}
         </Box>
       </Flex>
+      </Box>
     </>
   );
 };

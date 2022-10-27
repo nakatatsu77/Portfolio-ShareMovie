@@ -32,14 +32,14 @@ export const Header = () => {
   return (
     <>
       <Flex
-        // position="absolute"
+        position="absolute"
         w="100%"
         as="nav"
         bg="orange.900"
         color="gray.50"
         align="center"
         justify="space-between"
-        padding={{ base: 3, md: 3 }}
+        padding={{ base: 3, md: 4 }}
       >
         <Flex
           align="center"
@@ -47,31 +47,35 @@ export const Header = () => {
           _hover={{ cursor: "pointer" }}
           onClick={onClickHome}
         >
-          <Heading as="h1" fontSize={{ base: "md", md: "lg" }}>
+          <Heading as="h1" fontSize={{ base: "lg", md: "xl" }}>
             SHARE MOVIE
           </Heading>
         </Flex>
         <Flex
           align="center"
           fontSize="sm"
-          display={{ base: "none", sm: "flex" }}
+          display={{ base: "none", md: "flex" }}
         >
           <Box>
             {user ? (
-              <Button onClick={logout}  size="xs" colorScheme="blackAlpha">
+              <Button onClick={logout} size="sm" colorScheme="blackAlpha">
                 ログアウト
               </Button>
             ) : (
               <Box>
                 <Button
                   onClick={onClickLogin}
-                  size="xs"
+                  size="sm"
                   colorScheme="blackAlpha"
                   mr={4}
                 >
                   ログイン
                 </Button>
-                <Button onClick={onClickSignUp} size="xs" colorScheme="blackAlpha">
+                <Button
+                  onClick={onClickSignUp}
+                  size="sm"
+                  colorScheme="blackAlpha"
+                >
                   新規登録
                 </Button>
               </Box>

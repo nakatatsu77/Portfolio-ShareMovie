@@ -8,9 +8,9 @@ export const MenuIconButton = props => {
     <IconButton
       aria-label="メニューボタン"
       icon={<HamburgerIcon />}
-      size="sm"
+      size="md"
       variant="unstyled"
-      display={{ base: 'block', sm: "none" }}
+      display={{ base: "block", md: "none" }}
       onClick={onOpen}
     />
   );
