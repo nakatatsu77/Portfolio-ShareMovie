@@ -16,8 +16,8 @@ import {
 import { useEffect, useState } from "react";
 import { Movie } from "./Movie";
 
-const API_URL =
-  "https://api.themoviedb.org/3/movie/popular?api_key=98ac08b0dc42fd2311f3cda9142ae809&language=ja-JA";
+// const API_URL =
+//   "https://api.themoviedb.org/3/movie/popular?api_key=98ac08b0dc42fd2311f3cda9142ae809&language=ja-JA";
 
 const API_SEARCH =
   "https://api.themoviedb.org/3/search/movie?api_key=98ac08b0dc42fd2311f3cda9142ae809&query";
@@ -27,14 +27,14 @@ export const ShareMovie = () => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
 
-  useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setMovies(data.results);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setMovies(data.results);
+  //     });
+  // }, []);
 
   const searchMovie = async (e) => {
     e.preventDefault();
@@ -57,76 +57,66 @@ export const ShareMovie = () => {
   return (
     <>
       <Box>
-      <Flex align="center" justify="center">
-        <Box mt={6}>
-          <FormLabel fontWeight="bold" fontSize={{ base: "lg", md: "xl" }}>
-            お気に入りの映画を紹介しよう！
-            <form onSubmit={searchMovie}>
-              <Flex>
-                <Input
-                  variant="flushed"
-                  type="search"
-                  placeholder="映画を探す"
-                  value={query}
-                  onChange={changeHandler}
-                  htmlSize={50}
-                  w="100%"
-                  mr={3}
-                  size={{ base: "lg", md: "lg" }}
-                />
-                <Button
-                  onClick={onOpen}
-                  type="search"
-                  colorScheme="twitter"
-                  size={{ base: "md", md: "lg" }}
-                >
-                  検索
-                </Button>
-              </Flex>
+        <Flex align="center" justify="center">
+          <Box mt={6}>
+            <FormLabel fontWeight="bold" fontSize={{ base: "lg", md: "xl" }}>
+              お気に入りの映画を紹介しよう！
+              <form onSubmit={searchMovie}>
+                <Flex>
+                  <Input
+                    variant="flushed"
+                    type="search"
+                    placeholder="映画を探す"
+                    value={query}
+                    onChange={changeHandler}
+                    htmlSize={50}
+                    w="100%"
+                    mr={3}
+                    size={{ base: "lg", md: "lg" }}
+                  />
+                  <Button
+                    onClick={onOpen}
+                    type="search"
+                    colorScheme="twitter"
+                    size={{ base: "md", md: "lg" }}
+                  >
+                    検索
+                  </Button>
+                </Flex>
 
-              <Modal
-                isOpen={isOpen}
-                onClose={onClose}
-                scrollBehavior="inside"
-                size={{ base: "sm", md: "xl" }}
-              >
-                <ModalOverlay />
-                <ModalContent>
-                  <ModalHeader>検索結果</ModalHeader>
-                  <ModalBody>
-                    {movies.length > 0 ? (
-                      <Box>
-                        {movies.map((movieReq) => (
-                          <Movie key={movieReq.id} {...movieReq} />
-                        ))}
-                      </Box>
-                    ) : (
-                      <h2>Sorry No Movies Found</h2>
-                    )}
-                  </ModalBody>
-                  <ModalFooter>
-                    <Button variant="ghost" size="sm" onClick={onClose}>
-                      キャンセル
-                    </Button>
-                  </ModalFooter>
-                </ModalContent>
-              </Modal>
-            </form>
-          </FormLabel>
-          
-          {/* <div>
-            {movies.length > 0 ? (
-              <div>
-                {movies.map((movieReq) => (
-                  <Movie key={movieReq.id} {...movieReq} />
-                ))}
-              </div>
-            ) : (
-              <h2>Sorry No Movies Found</h2>
-            )}
-          </div> */}
-        </Box>
-      </Flex>
+                <Modal
+                  isOpen={isOpen}
+                  onClose={onClose}
+                  scrollBehavior="inside"
+                  size={{ base: "sm", md: "xl" }}
+                >
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader>検索結果</ModalHeader>
+                    <ModalBody>
+                      {movies.length > 0 ? (
+                        <Box>
+                          {movies.map((movieReq) => (
+                            <Movie key={movieReq.id} {...movieReq} />
+                          ))}
+                        </Box>
+                      ) : (
+                        <h2>Sorry No Movies Found</h2>
+                      )}
+                    </ModalBody>
+                    <ModalFooter>
+                      <Button variant="ghost" size="sm" onClick={onClose}>
+                        キャンセル
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
+              </form>
+            </FormLabel>
+
+            <Text>みんなのおすすめ映画</Text>
+          </Box>
+        </Flex>
       </Box>
     </>
   );

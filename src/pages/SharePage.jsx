@@ -25,8 +25,8 @@ export const SharePage = () => {
             <Navigate to={`/login/`} />
           ) : (
             <>
-              <Flex justify="center" height="100vh">
-                <Flex align="flex-start" pt={70}>
+              <Flex justify="center" minH="100vh">
+                <Flex align="flex-start" pt={70} pb={70}>
                   <ShareMovie />
                 </Flex>
               </Flex>
