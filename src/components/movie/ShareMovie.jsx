@@ -26,6 +26,7 @@ export const ShareMovie = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
+  const [favoriteMovies, setFavoriteMovies] = useState([])
 
   // useEffect(() => {
   //   fetch(API_URL)
@@ -96,8 +97,8 @@ export const ShareMovie = () => {
                     <ModalBody>
                       {movies.length > 0 ? (
                         <Box>
-                          {movies.map((movieReq) => (
-                            <Movie key={movieReq.id} {...movieReq} />
+                          {movies.map((movie) => (
+                            <Movie key={movie.id} movie={movie} {...movie} setFavoriteMovies={setFavoriteMovies} />
                           ))}
                         </Box>
                       ) : (
@@ -115,6 +116,11 @@ export const ShareMovie = () => {
             </FormLabel>
 
             <Text>みんなのおすすめ映画</Text>
+            <Box>
+              {favoriteMovies && favoriteMovies.length > 0 && favoriteMovies.map((favoriteMovie) => (
+                <Movie key={favoriteMovie.id} movie={favoriteMovie} {...favoriteMovie} setFavoriteMovies={setFavoriteMovies} />
+              ))}
+            </Box>
           </Box>
         </Flex>
       </Box>
