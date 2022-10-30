@@ -9,7 +9,6 @@ export const Movie = ({
   title,
   poster_path,
   release_date,
-  favoriteMovies,
   setFavoriteMovies,
   id,
 }) => {
