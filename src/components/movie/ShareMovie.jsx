@@ -134,7 +134,7 @@ export const ShareMovie = () => {
                 ))} */}
               {favoriteMovies &&
                 favoriteMovies.length > 0 &&
-                favoriteMovies.map((favoriteMovie,index) => (
+                favoriteMovies.map((favoriteMovie, index) => (
                   <Movie
                     key={index}
                     movie={favoriteMovie}
