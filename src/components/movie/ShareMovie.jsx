@@ -3,6 +3,7 @@ import {
   Button,
   Flex,
   FormLabel,
+  Heading,
   Input,
   Modal,
   ModalBody,
@@ -10,32 +11,18 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
-  Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { db } from "../../Firebase";
 import { Movie } from "./Movie";
-
-// const API_URL =
-//   "https://api.themoviedb.org/3/movie/popular?api_key=98ac08b0dc42fd2311f3cda9142ae809&language=ja-JA";
-
-const API_SEARCH =
-  "https://api.themoviedb.org/3/search/movie?api_key=98ac08b0dc42fd2311f3cda9142ae809&query";
 
 export const ShareMovie = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
   const [favoriteMovies, setFavoriteMovies] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(API_URL)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setMovies(data.results);
-  //     });
-  // }, []);
 
   const searchMovie = async (e) => {
     e.preventDefault();
@@ -54,6 +41,19 @@ export const ShareMovie = () => {
   const changeHandler = (e) => {
     setQuery(e.target.value);
   };
+
+  useEffect(() => {
+    //データベースからデータの読み取り
+    const movieData = collection(db, "favoriteMovies");
+    getDocs(movieData).then((snapShot) => {
+      // console.log(snapShot.docs.map((doc) => ({ ...doc.data() })));
+      setFavoriteMovies(snapShot.docs.map((doc) => ({ ...doc.data() })));
+    });
+    // リアルタイムで更新
+    // onSnapshot(movieData,(favoriteMovie) => {
+    //   setFavoriteMovies(favoriteMovie.docs.map((doc) => ({ ...doc.data() })))
+    // })
+  });
 
   return (
     <>
@@ -120,7 +120,9 @@ export const ShareMovie = () => {
               </form>
             </FormLabel>
 
-            <Text>みんなのおすすめ映画</Text>
+            <Heading as="h1" fontSize="25px" align="center" mt={5} mb={5}>
+              ユーザーのおすすめ映画
+            </Heading>
             <Box>
               {/* {favoriteMovies &&
                 favoriteMovies.length > 0 &&
