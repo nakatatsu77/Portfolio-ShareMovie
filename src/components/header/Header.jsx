@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { MenuIconButton } from "./MenuIconButton";
 import { MenuDrawer } from "./MenuDrawer";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../Firebase";
+import  {auth}  from "../../Firebase";
 import { signOut } from "firebase/auth";
 
 export const Header = () => {

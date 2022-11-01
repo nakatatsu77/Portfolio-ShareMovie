@@ -6,7 +6,7 @@ import {
   DrawerContent,
   DrawerOverlay,
 } from "@chakra-ui/react";
-import { auth } from "../../Firebase";
+import  {auth}  from "../../Firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";

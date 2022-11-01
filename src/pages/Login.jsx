@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { auth } from "../Firebase";
+import  {auth}  from "../Firebase";
 import {
   Box,
   Button,

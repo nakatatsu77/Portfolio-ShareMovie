@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { auth } from '../Firebase';
+import {auth}  from '../Firebase';
 import { Navigate, Link } from 'react-router-dom';
 import {
   Box,

@@ -15,7 +15,7 @@ export const Page404 = () => {
           textShadow="1px 1px white"
           whiteSpace="nowrap"
         >
-          404ページです
+          404 Not Found
         </Text>
       </Box>
     </>
