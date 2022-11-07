@@ -3,7 +3,6 @@ import { onAuthStateChanged } from "firebase/auth";
 import  {auth}  from "../Firebase";
 import { Navigate } from "react-router-dom";
 import { Flex, Text } from "@chakra-ui/react";
-import topPageImage from "../assets/img/top.png";
 import { ShareMovie } from "../components/movie/ShareMovie";
 
 export const SharePage = () => {
