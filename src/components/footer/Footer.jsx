@@ -12,7 +12,7 @@ export const Footer = () => {
       padding={{ base: 4, md: 5 }}
     >
       <Text textAlign="center" fontSize="sm">
-        © 2022 Tatsu
+        © 2022 Tatsuya
       </Text>
     </Box>
   );

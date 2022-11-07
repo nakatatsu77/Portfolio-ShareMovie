@@ -1,9 +1,11 @@
 import { useCallback } from "react";
+import logo from "../../assets/img/logo.png";
 import {
   Box,
   Button,
   Flex,
   Heading,
+  Img,
   Link,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -11,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { MenuIconButton } from "./MenuIconButton";
 import { MenuDrawer } from "./MenuDrawer";
 import { useAuthState } from "react-firebase-hooks/auth";
-import  {auth}  from "../../Firebase";
+import { auth } from "../../Firebase";
 import { signOut } from "firebase/auth";
 
 export const Header = () => {
@@ -47,8 +49,9 @@ export const Header = () => {
           _hover={{ cursor: "pointer" }}
           onClick={onClickHome}
         >
+          <Img src={logo} w="20px" mr={1}  />
           <Heading as="h1" fontSize={{ base: "lg", md: "xl" }}>
-            SHARE MOVIE
+            SHARE MOVIE 
           </Heading>
         </Flex>
         <Flex
