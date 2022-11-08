@@ -1,26 +1,23 @@
 import React, { useState } from "react";
 import { Button, Flex, Heading, Img, Stack, Text } from "@chakra-ui/react";
+import firebase from "firebase/compat/app";
 import { db, auth } from "../../Firebase.js";
-import { addDoc, collection, getDocs, onSnapshot } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  doc,
+  getDocs,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
 
 const API_IMG = "https://image.tmdb.org/t/p/w154/";
 
-export const Movie = ({
-  title,
-  poster_path,
-  release_date,
-  setFavoriteMovies,
-  favoriteMovies,
-  id,
-}) => {
-  // const addFavoriteMovie = () => {
-  //   setFavoriteMovies((favoriteMovies) => [...favoriteMovies, movie]);
-  // };
+export const Movie = ({ title, poster_path, release_date, id }) => {
   const { uid } = auth.currentUser;
-  const [favoriteMovie, setFavoriteMovie] = useState("");
 
   const handleClickAddButton = async () => {
-    //データベースにクリックした映画データの保存
+    //データベースにクリックした映画データの追加
     try {
       const docRef = await addDoc(collection(db, "favoriteMovies"), {
         title,
@@ -29,22 +26,11 @@ export const Movie = ({
         poster_path,
         API_IMG,
         uid,
-        // favoriteMovies
       });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-    // //データベースからデータの読み取り
-    // const movieData = collection(db, "favoriteMovies");
-    // await getDocs(movieData).then((snapShot) => {
-    //   // console.log(snapShot.docs.map((doc) => ({ ...doc.data() })));
-    //   setFavoriteMovies(snapShot.docs.map((doc) => ({ ...doc.data() })));
-    // });
-    // // リアルタイムで更新
-    // // onSnapshot(movieData,(favoriteMovie) => {
-    // //   setFavoriteMovies(favoriteMovie.docs.map((doc) => ({ ...doc.data() })))
-    // // })
   };
 
   return (
@@ -56,12 +42,8 @@ export const Movie = ({
             <Text>{title}</Text>
             <Text>{release_date}公開</Text>
           </Stack>
-          <Button
-            onClick={() => setFavoriteMovie(handleClickAddButton)}
-            colorScheme="twitter"
-            mt={5}
-          >
-            s みんなとシェア！
+          <Button onClick={handleClickAddButton} colorScheme="twitter" mt={5}>
+            みんなとシェア！
           </Button>
         </Heading>
       </Flex>

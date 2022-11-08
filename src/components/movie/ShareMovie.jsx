@@ -13,7 +13,7 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, onSnapshot, orderBy } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../../Firebase";
 import { Movie } from "./Movie";
@@ -36,6 +36,7 @@ export const ShareMovie = () => {
     } catch (e) {
       console.log(e);
     }
+    setQuery("");
   };
 
   const changeHandler = (e) => {
@@ -49,11 +50,11 @@ export const ShareMovie = () => {
       // console.log(snapShot.docs.map((doc) => ({ ...doc.data() })));
       setFavoriteMovies(snapShot.docs.map((doc) => ({ ...doc.data() })));
     });
-    // リアルタイムで更新
-    // onSnapshot(movieData,(favoriteMovie) => {
-    //   setFavoriteMovies(favoriteMovie.docs.map((doc) => ({ ...doc.data() })))
-    // })
-  });
+    //リアルタイムで更新
+    onSnapshot(movieData, (favoriteMovie) => {
+      setFavoriteMovies(favoriteMovie.docs.map((doc) => ({ ...doc.data() })));
+    });
+  }, []);
 
   return (
     <>
@@ -120,7 +121,13 @@ export const ShareMovie = () => {
               </form>
             </FormLabel>
 
-            <Heading as="h1" fontSize="25px" align="center" mt={5} mb={5}>
+            <Heading
+              as="h1"
+              fontSize={{ base: "20px", md: "25px" }}
+              align="center"
+              mt={5}
+              mb={5}
+            >
               ユーザーのおすすめ映画
             </Heading>
             <Box>
