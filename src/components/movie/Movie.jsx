@@ -19,14 +19,17 @@ export const Movie = ({ title, poster_path, release_date, id }) => {
   const handleClickAddButton = async () => {
     //データベースにクリックした映画データの追加
     try {
-      const docRef = await addDoc(collection(db, "favoriteMovies"), {
-        title,
-        id,
-        release_date,
-        poster_path,
-        API_IMG,
-        uid,
-      });
+      // const docRef = await addDoc(collection(db, "favoriteMovies"), {
+      const docRef = doc(db, "favoriteMovies", "id");
+      await setDoc(docRef, { capital: true }, { merge: true }),
+        {
+          title,
+          id,
+          release_date,
+          poster_path,
+          API_IMG,
+          uid,
+        };
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
